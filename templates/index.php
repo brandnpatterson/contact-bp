@@ -1,9 +1,9 @@
 <?php require_once 'templates/header.php';?>
     <div class="container mb-5">
-        <?php if ($validation != ''): ?>
-            <div class="alert <?=$validationClass?>">
-                <?=$validation;?>
-                <?php if ($validationClass == 'alert-success'): ?>
+        <?php if ($mailer->validation != ''): ?>
+            <div class="alert <?=$mailer->validationClass?>">
+                <?=$mailer->validation;?>
+                <?php if ($mailer->validationClass == 'alert-success'): ?>
                     <i class="ml-2 fa fa-check"></i>
                 <?php endif;?>
             </div>

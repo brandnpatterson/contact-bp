@@ -68,14 +68,14 @@ class Mailer
         $this->validate(false, 'Please fill out all fields', $this->alertDanger);
     }
 
-    public function emailFail()
-    {
-        $this->validate(false, 'Your email was not sent', $this->alertDanger);
-    }
-
     public function emailInvalid()
     {
         $this->validate(false, 'Please use a valid email', $this->alertDanger);
+    }
+
+    public function emailFail()
+    {
+        $this->validate(false, 'Your email was not sent', $this->alertDanger);
     }
 
     public function emailSuccess()

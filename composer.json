@@ -1,0 +1,14 @@
+{
+  "name": "contact-bp",
+  "description": "Contact Brandon Patterson",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Brandon Patterson",
+      "email": "brandnpatterson@gmail.com"
+    }
+  ],
+  "require": {
+    "sendgrid/sendgrid": "^7.0"
+  }
+}

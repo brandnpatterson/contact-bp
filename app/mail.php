@@ -1,4 +1,7 @@
 <?php
+
+use \SendGrid\Mail\Mail as Mail;
+
 $isValidated = false;
 $validation = '';
 $validationClass = '';
@@ -24,7 +27,7 @@ if (filter_has_var(INPUT_POST, 'submit')) {
             $validation = 'Please use a valid email';
             $validationClass = 'alert-danger';
         } else {
-            $sendEmail = new \SendGrid\Mail\Mail();
+            $sendEmail = new Mail();
             $sendEmail->setFrom($email, $name);
             $sendEmail->setSubject("Hello from $name");
             $sendEmail->addTo($toEmail, "Brandon Patterson");

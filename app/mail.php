@@ -8,10 +8,15 @@ $email = '';
 $message = '';
 $toEmail = 'brandnpatterson@gmail.com';
 
+function cleanPost($arg)
+{
+    return htmlspecialchars($_POST[$arg]);
+}
+
 if (filter_has_var(INPUT_POST, 'submit')) {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
+    $name = cleanPost('name');
+    $email = cleanPost('email');
+    $message = cleanPost('message');
 
     if (!empty($name) && !empty($name) && !empty($message)) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {

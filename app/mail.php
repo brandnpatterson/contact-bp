@@ -1,6 +1,4 @@
 <?php
-require 'vendor/autoload.php';
-
 $isValidated = false;
 $validation = '';
 $validationClass = '';

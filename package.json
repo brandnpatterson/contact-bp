@@ -1,0 +1,22 @@
+{
+  "name": "contact-bp",
+  "version": "1.0.0",
+  "description": "contact bp with this form",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandnpatterson/contact-bp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandnpatterson/contact-bp/issues"
+  },
+  "homepage": "https://github.com/brandnpatterson/contact-bp#readme",
+  "dependencies": {
+    "coriander": "^1.2.3"
+  }
+}

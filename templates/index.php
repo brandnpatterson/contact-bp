@@ -21,5 +21,7 @@
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/coriander@1.2.4/index.js"></script>
+    <script src="templates/js/index.js"></script>
 </body>
 </html>

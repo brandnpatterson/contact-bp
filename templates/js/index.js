@@ -1,3 +1,5 @@
 var form = document.querySelector('.form');
 
-form.coriander();
+form.coriander({
+  onChange: true
+});

@@ -18,7 +18,7 @@ class Mailer
 
     public function init()
     {
-        if (filter_has_var(INPUT_POST, 'submit')) {
+        if (filter_has_var(INPUT_POST, 'email')) {
             $this->name = $this->cleanPost('name');
             $this->email = $this->cleanPost('email');
             $this->message = $this->cleanPost('message');

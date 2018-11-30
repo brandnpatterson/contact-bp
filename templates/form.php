@@ -14,5 +14,5 @@
         <label for="message">Message</label>
         <textarea name="message" id="message" cols="30" rows="4" class="form-control" data-required="required"><?=$mailer->isValidated ? '' : $mailer->message?></textarea>
     </div>
-    <button name="submit" type="submit" class="btn btn-primary btn-block">Submit</button>
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
 </form>

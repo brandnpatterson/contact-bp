@@ -1,4 +1,4 @@
-<?php require_once 'templates/header.php';?>
+<?php require 'templates/header.php';?>
     <div class="container mb-5">
         <?php if ($mailer->validation != ''): ?>
             <div class="alert <?=$mailer->validationClass?>">
@@ -10,18 +10,16 @@
         <?php endif;?>
         <div class="row">
             <div class="col-md-12">
-                <?php require_once 'templates/form.php';?>
+                <?php require 'templates/form.php';?>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <?php require_once 'templates/footer.php';?>
+                <?php require 'templates/footer.php';?>
             </div>
         </div>
     </div>
-    <script src="https://unpkg.com/coriander@1.2.4/index.js"></script>
-    <script src="templates/js/index.js"></script>
 </body>
 </html>

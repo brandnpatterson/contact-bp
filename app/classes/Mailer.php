@@ -11,7 +11,8 @@ class Mailer
     public $name = '';
     public $email = '';
     public $message = '';
-    public $toEmail = 'brandnpatterson@gmail.com';
+    public $serverEmail = 'brandnpatterson@gmail.com';
+    public $returnMessage = "Hey! Thank you for emailing me. I'll be back with you shortly.";
 
     private $alertDanger = 'alert-danger';
     private $alertSuccess = 'alert-success';
@@ -27,28 +28,34 @@ class Mailer
                 if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
                     $this->emailInvalid();
                 } else {
-                    $sendEmail = new Mail();
-                    $sendEmail->setFrom($this->email, $this->name);
-                    $sendEmail->setSubject("Hello from $this->name");
-                    $sendEmail->addTo($this->toEmail, "Brandon Patterson");
-                    $sendEmail->addContent(
-                        "text/html", "<p>$this->message</p>"
-                    );
-                    $sendgrid = new \SendGrid(API_KEY);
-
-                    try {
-                        $sendgrid->send($sendEmail);
-                        $this->emailSuccess();
-                    } catch (Exception $e) {
-                        echo 'Caught exception: ', $e->getMessage(), "\n";
-                        $this->emailFail();
-                    }
+                    $this->sendEmail($this->email, $this->name, $this->serverEmail, $this->message);
+                    $this->sendEmail($this->serverEmail, $this->serverName, $this->email, $this->returnMessage);
                 }
             } else {
                 $this->emptyForms();
             }
         }
 
+    }
+
+    public function sendEmail($fromEmail, $fromName, $toEmail, $message)
+    {
+        $sendEmail = new Mail();
+        $sendEmail->setFrom($fromEmail, $fromName);
+        $sendEmail->setSubject("Hello from $fromName");
+        $sendEmail->addTo($toEmail, "Brandon Patterson");
+        $sendEmail->addContent(
+            "text/html", "<p>$message</p>"
+        );
+        $sendgrid = new \SendGrid(API_KEY);
+
+        try {
+            $sendgrid->send($sendEmail);
+            $this->emailSuccess();
+        } catch (Exception $e) {
+            echo 'Caught exception: ', $e->getMessage(), "\n";
+            $this->emailFail();
+        }
     }
 
     public function cleanPost($arg)

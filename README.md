@@ -1,5 +1,7 @@
 # Contact Brandon Patterson
 
+Contact Form built with PHP and Sendgrid
+
 #### What's up?
 
 [Say hi! 👋](https://contact-bp.herokuapp.com/)

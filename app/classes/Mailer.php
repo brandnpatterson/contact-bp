@@ -60,7 +60,7 @@ class Mailer
 
     public function returnMessage()
     {
-        return "Hey $this->name! Thank you for emailing me. I'll be back with you shortly.";
+        return "Hey $this->name! Thank you for emailing me. I'll be in touch with you shortly.";
     }
 
     public function cleanPost($arg)

@@ -11,8 +11,8 @@ class Mailer
     public $name = '';
     public $email = '';
     public $message = '';
+    public $serverName = 'Brandon Patterson';
     public $serverEmail = 'brandnpatterson@gmail.com';
-    public $returnMessage = "Hey! Thank you for emailing me. I'll be back with you shortly.";
 
     private $alertDanger = 'alert-danger';
     private $alertSuccess = 'alert-success';
@@ -28,8 +28,8 @@ class Mailer
                 if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
                     $this->emailInvalid();
                 } else {
-                    $this->sendEmail($this->email, $this->name, $this->serverEmail, $this->message);
-                    $this->sendEmail($this->serverEmail, $this->serverName, $this->email, $this->returnMessage);
+                    $this->sendEmail($this->email, "Hello from $this->name", $this->serverEmail, $this->message);
+                    $this->sendEmail($this->serverEmail, "Thank you from $this->serverName", $this->email, $this->returnMessage());
                 }
             } else {
                 $this->emptyForms();
@@ -42,7 +42,7 @@ class Mailer
     {
         $sendEmail = new Mail();
         $sendEmail->setFrom($fromEmail, $fromName);
-        $sendEmail->setSubject("Hello from $fromName");
+        $sendEmail->setSubject($fromName);
         $sendEmail->addTo($toEmail, "Brandon Patterson");
         $sendEmail->addContent(
             "text/html", "<p>$message</p>"
@@ -56,6 +56,11 @@ class Mailer
             echo 'Caught exception: ', $e->getMessage(), "\n";
             $this->emailFail();
         }
+    }
+
+    public function returnMessage()
+    {
+        return "Hey $this->name! Thank you for emailing me. I'll be back with you shortly.";
     }
 
     public function cleanPost($arg)

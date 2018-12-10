@@ -1,4 +1,4 @@
-<!-- <form class="form" method="post" action="<?=SERVER_SELF;?>">
+<form class="form" method="post" action="<?=SERVER_SELF;?>">
     <div class="form-group">
         <h1>Contact Me Today</h1>
     </div>
@@ -15,4 +15,4 @@
         <textarea name="message" id="message" cols="30" rows="4" class="form-control" data-required="required"><?=$mailer->isValidated ? '' : $mailer->message?></textarea>
     </div>
     <button type="submit" class="btn btn-primary btn-block">Submit</button>
-</form> -->
+</form>

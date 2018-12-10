@@ -81,7 +81,7 @@ class Mailer
         $arr = array('data' => $msg);
 
         $this->validate(false, $msg, $this->alertDanger);
-        echo json_encode($arr);
+        echo json_decode($arr);
     }
 
     public function emailInvalid()
@@ -89,7 +89,7 @@ class Mailer
         $msg = 'Please use a valid email';
         $arr = array('data' => $msg);
         $this->validate(false, $msg, $this->alertDanger);
-        echo json_encode($products_arr);
+        echo json_decode($products_arr);
     }
 
     public function emailFail()
@@ -98,7 +98,7 @@ class Mailer
         $arr = array('data' => $msg);
 
         $this->validate(false, $msg, $this->alertDanger);
-        echo json_encode($products_arr);
+        echo json_decode($products_arr);
     }
 
     public function emailSuccess()
@@ -107,7 +107,7 @@ class Mailer
         $arr = array('data' => $msg);
 
         $this->validate(true, $msg, $this->alertSuccess);
-        echo json_encode($products_arr);
+        echo json_decode($products_arr);
     }
 }
 

@@ -4,6 +4,10 @@ use \SendGrid\Mail\Mail as Mail;
 
 class Mailer
 {
+    public $isValidated = false;
+    public $validation = '';
+    public $validationClass = '';
+
     public $name = '';
     public $email = '';
     public $message = '';
@@ -64,27 +68,41 @@ class Mailer
         return htmlspecialchars($_POST[$arg]);
     }
 
+    public function validate($isValidated, $validation, $validationClass)
+    {
+        $this->isValidated = $isValidated;
+        $this->validation = $validation;
+        $this->validationClass = $validationClass;
+    }
+
     public function emptyForms()
     {
-       $json = array('data' => 'Please fill out all fields');
-        echo json_encode($arr);
+        $msg = 'Please fill out all fields';
+        $json = array('data' => $msg);
+
+        echo json_encode($json);
     }
 
     public function emailInvalid()
     {
-       $json = array('data' => 'Please use a valid email');
+        $msg = 'Please use a valid email';
+        $json = array('data' => $msg);
         echo json_encode($json);
     }
 
     public function emailFail()
     {
-       $json = array('data' => 'Your email was not sent');
+        $msg = 'Your email was not sent';
+        $json = array('data' => $msg);
+
         echo json_encode($json);
     }
 
     public function emailSuccess()
     {
-       $json = array('data' => "Your email has been sent to $this->toEmail");
+        $msg = "Your email has been sent to $this->toEmail";
+        $json = array('data' => $msg);
+
         echo json_encode($json);
     }
 }

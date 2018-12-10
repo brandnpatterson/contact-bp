@@ -78,32 +78,36 @@ class Mailer
     public function emptyForms()
     {
         $msg = 'Please fill out all fields';
-        $json = array('data' => $msg);
+        $arr = array('data' => $msg);
 
-        echo json_encode($json);
+        $this->validate(false, $msg, $this->alertDanger);
+        echo json_encode($arr);
     }
 
     public function emailInvalid()
     {
         $msg = 'Please use a valid email';
-        $json = array('data' => $msg);
-        echo json_encode($json);
+        $arr = array('data' => $msg);
+        $this->validate(false, $msg, $this->alertDanger);
+        echo json_encode($products_arr);
     }
 
     public function emailFail()
     {
         $msg = 'Your email was not sent';
-        $json = array('data' => $msg);
+        $arr = array('data' => $msg);
 
-        echo json_encode($json);
+        $this->validate(false, $msg, $this->alertDanger);
+        echo json_encode($products_arr);
     }
 
     public function emailSuccess()
     {
         $msg = "Your email has been sent to $this->toEmail";
-        $json = array('data' => $msg);
+        $arr = array('data' => $msg);
 
-        echo json_encode($json);
+        $this->validate(true, $msg, $this->alertSuccess);
+        echo json_encode($products_arr);
     }
 }
 

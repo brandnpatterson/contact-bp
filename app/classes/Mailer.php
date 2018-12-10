@@ -4,10 +4,6 @@ use \SendGrid\Mail\Mail as Mail;
 
 class Mailer
 {
-    public $isValidated = false;
-    public $validation = '';
-    public $validationClass = '';
-
     public $name = '';
     public $email = '';
     public $message = '';
@@ -68,46 +64,28 @@ class Mailer
         return htmlspecialchars($_POST[$arg]);
     }
 
-    public function validate($isValidated, $validation, $validationClass)
-    {
-        $this->isValidated = $isValidated;
-        $this->validation = $validation;
-        $this->validationClass = $validationClass;
-    }
-
     public function emptyForms()
     {
-        $msg = 'Please fill out all fields';
-        $arr = array('data' => $msg);
-
-        $this->validate(false, $msg, $this->alertDanger);
+       $json = array('data' => 'Please fill out all fields');
         echo json_encode($arr);
     }
 
     public function emailInvalid()
     {
-        $msg = 'Please use a valid email';
-        $arr = array('data' => $msg);
-        $this->validate(false, $msg, $this->alertDanger);
-        echo json_encode($products_arr);
+       $json = array('data' => 'Please use a valid email');
+        echo json_encode($json);
     }
 
     public function emailFail()
     {
-        $msg = 'Your email was not sent';
-        $arr = array('data' => $msg);
-
-        $this->validate(false, $msg, $this->alertDanger);
-        echo json_encode($products_arr);
+       $json = array('data' => 'Your email was not sent');
+        echo json_encode($json);
     }
 
     public function emailSuccess()
     {
-        $msg = "Your email has been sent to $this->toEmail";
-        $arr = array('data' => $msg);
-
-        $this->validate(true, $msg, $this->alertSuccess);
-        echo json_encode($products_arr);
+       $json = array('data' => "Your email has been sent to $this->toEmail");
+        echo json_encode($json);
     }
 }
 

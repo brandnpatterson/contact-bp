@@ -77,31 +77,24 @@ class Mailer
     public function emptyForms()
     {
         $msg = 'Please fill out all fields';
-        $arr = array('data' => $msg);
-
         $this->validate(false, $msg, $this->alertDanger);
     }
 
     public function emailInvalid()
     {
         $msg = 'Please use a valid email';
-        $arr = array('data' => $msg);
         $this->validate(false, $msg, $this->alertDanger);
     }
 
     public function emailFail()
     {
         $msg = 'Your email was not sent';
-        $arr = array('data' => $msg);
-
         $this->validate(false, $msg, $this->alertDanger);
     }
 
     public function emailSuccess()
     {
         $msg = "Your email has been sent to $this->toEmail";
-        $arr = array('data' => $msg);
-
         $this->validate(true, $msg, $this->alertSuccess);
     }
 }

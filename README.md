@@ -8,7 +8,7 @@ Contact Form built with PHP and Sendgrid
 
 ## Built With
 
-- [PHP](http://www.php.net/) - PHP is a dynamically typed server side scripting language
+- [PHP](http://www.php.net/) - Dynamically typed server side scripting language
 - [Sendgrid](https://sendgrid.com/) - Email sending service
 
 ## Authors

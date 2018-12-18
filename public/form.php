@@ -1,4 +1,4 @@
-<form class="form" method="post" action="mailer/index.php">
+<form class="form" method="post" action="mailer.php">
     <div class="form-group">
         <h1>Contact Me Today</h1>
     </div>

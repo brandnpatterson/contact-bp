@@ -37,14 +37,33 @@ class Mailer
         }
     }
 
-    public function sendEmail($fromEmail, $fromName, $toEmail, $message)
+    public function sendEmail()
     {
         $sendEmail = new Mail();
-        $sendEmail->setFrom($fromEmail, $fromName);
-        $sendEmail->setSubject($fromName);
-        $sendEmail->addTo($toEmail, "Brandon Patterson");
+        $sendEmail->setFrom($this->email, $this->name);
+        $sendEmail->setSubject("Hello from $this->name");
+        $sendEmail->addTo($this->toEmail, "Brandon Patterson");
         $sendEmail->addContent(
-            "text/html", "<p>$message</p>"
+            "text/html", "<p>$this->message</p>"
+        );
+        $sendgrid = new \SendGrid(API_KEY);
+        try {
+            $sendgrid->send($sendEmail);
+            $this->emailSuccess();
+        } catch (Exception $e) {
+            echo 'Caught exception: ', $e->getMessage(), "\n";
+            $this->emailFail();
+        }
+    }
+
+    public function returnEmail()
+    {
+        $sendEmail = new Mail();
+        $sendEmail->setFrom($this->serverEmail, $this->serverName);
+        $sendEmail->setSubject("Thank you from $this->serverName");
+        $sendEmail->addTo($this->email, "Brandon Patterson");
+        $sendEmail->addContent(
+            "text/html", '<p>' . $this->returnMessage() . '</p>'
         );
         $sendgrid = new \SendGrid(API_KEY);
 
@@ -94,7 +113,7 @@ class Mailer
 
     public function emailSuccess()
     {
-        $msg = "Your email has been sent to $this->toEmail";
+        $msg = "Your email has been sent to $this->email";
         $this->validate(true, $msg, $this->alertSuccess);
     }
 }

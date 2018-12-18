@@ -20,13 +20,12 @@ coriander(form, {
         showMessage(res.data.message);
       })
       .catch(function(err) {
-        mailerAlert.classList.add('alert-success');
-        mailerCheck.classList.remove('hidden');
+        mailerAlert.classList.add('alert-danger');
 
-        if (err.data.message) {
+        if (err.data && err.data.message) {
           showMessage(err.data.message);
         } else {
-          showMessage('Your email was not sent');
+          showMessage('Your email was not sent. Please try again');
         }
       })
       .then(function() {

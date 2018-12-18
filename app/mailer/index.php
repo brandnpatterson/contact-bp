@@ -1,8 +1,8 @@
 <?php
-define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT']);
+$root = $_SERVER['DOCUMENT_ROOT'];
 
-require ROOT_DIR . '/vendor/autoload.php';
-require ROOT_DIR . '/conf/conf.php';
+require $root . '/vendor/autoload.php';
+require $root . '/conf/conf.php';
 
 use \SendGrid\Mail\Mail as Mail;
 
@@ -103,7 +103,7 @@ class Mailer
 
     public function emailFail()
     {
-        $msg = 'Your email was not sent';
+        $msg = 'Your email was not sent. Please try again';
         $this->jsonResponse($msg);
     }
 

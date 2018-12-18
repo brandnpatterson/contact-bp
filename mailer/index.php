@@ -1,8 +1,8 @@
 <?php
-$root = $_SERVER['DOCUMENT_ROOT'];
+define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT']);
 
-require $root . '/vendor/autoload.php';
-require $root . '/conf/conf.php';
+require ROOT_DIR . '/vendor/autoload.php';
+require ROOT_DIR . '/conf/conf.php';
 
 use \SendGrid\Mail\Mail as Mail;
 
